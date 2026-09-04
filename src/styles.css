@@ -1,0 +1,89 @@
+/* Base styles */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #14141e;
+  --bg-card: #1a1a2e;
+  --bg-hover: #24243a;
+  --border-color: #2a2a3e;
+  --text-primary: #e4e4e7;
+  --text-secondary: #a1a1aa;
+  --accent: #6c5ce7;
+  --accent-hover: #7c6cf0;
+  --success: #48bb78;
+  --danger: #fc8181;
+  --warning: #f6ad55;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Animations */
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.pulse { animation: pulse 1.5s ease-in-out infinite; }
+.slide-in { animation: slideIn 0.3s ease-out; }
+.spin { animation: spin 1s linear infinite; }
+
+/* Status dots */
+.status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; flex-shrink: 0; }
+.status-dot.active { background: var(--success); box-shadow: 0 0 8px rgba(72, 187, 120, 0.3); }
+.status-dot.idle { background: var(--text-secondary); }
+.status-dot.error { background: var(--danger); }
+
+/* Log container */
+.log-container {
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.log-entry { padding: 4px 0; border-bottom: 1px solid rgba(42, 42, 62, 0.3); display: flex; gap: 8px; font-size: 12px; }
+.log-entry:last-child { border-bottom: none; }
+.log-time { color: var(--text-secondary); font-size: 10px; flex-shrink: 0; }
+.log-message { word-break: break-word; }
+.log-type-system { color: var(--warning); }
+.log-type-interaction { color: var(--accent); }
+.log-type-state { color: var(--success); }
+.log-type-broadcast { color: #9f7aea; }
+.log-type-evolution { color: #68d391; }
+.log-type-tool { color: #63b3ed; }
+
+/* Agent cards */
+.agent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+
+.agent-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 16px; transition: all 0.2s ease; }
+.agent-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(108, 92, 231, 0.1); }
+.agent-card .role { font-weight: 600; font-size: 14px; }
+.agent-card .strategy { font-size: 12px; color: var(--text-secondary); }
+.agent-card .trust { font-size: 12px; color: var(--text-secondary); }
+.agent-card .trust-bar { width: 100%; height: 4px; background: var(--bg-secondary); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+.agent-card .trust-bar-fill { height: 100%; border-radius: 2px; transition: width 0.3s ease; background: linear-gradient(90deg, var(--danger), var(--warning), var(--success)); }
+
+/* Buttons */
+.btn { padding: 8px 16px; border: none; border-radius: 6px; font-weight: 500; font-size: 14px; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: var(--accent); color: white; }
+.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); }
+.btn-secondary:hover { background: var(--bg-hover); }
+.btn-success { background: var(--success); color: white; }
+.btn-success:hover { filter: brightness(1.1); }
+.btn-danger { background: var(--danger); color: white; }
+.btn-danger:hover { filter: brightness(1.1); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .agent-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .btn { padding: 6px 12px; font-size: 12px; }
+  .log-container { max-height: 300px; font-size: 11px; }
+}
