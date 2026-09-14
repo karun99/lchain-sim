@@ -11,18 +11,18 @@
     "dev": "nodemon api/simulate.js"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "react-scripts": "5.0.1",
-    "express": "^4.18.2",
+    "express": "^5.2.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "langchain": "^0.1.0",
-    "@langchain/openai": "^0.0.14",
-    "@langchain/community": "^0.0.15",
+    "dotenv": "^17.4.2",
+    "langchain": "^1.5.11",
+    "@langchain/openai": "^1.5.12",
+    "@langchain/community": "^1.1.29",
     "cheerio": "^1.0.0-rc.12",
     "axios": "^1.6.0",
-    "serverless-http": "^3.2.0"
+    "serverless-http": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
